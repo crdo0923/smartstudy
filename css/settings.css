@@ -1,0 +1,325 @@
+/* =======================================================
+    SETTINGS PAGE STYLES (Final, High Specificity)
+    This ensures that these styles override any conflicting 
+    rules from index.css or profile.css.
+========================================================== */
+
+/* --- IMPORTED VARIABLES --- */
+/* (Assuming index.css is loaded first, the :root variables are available) */
+
+/* --- OVERALL PAGE STRUCTURE (Using your HTML classes) --- */
+
+.profile-body {
+    /* Ensure the body takes full height and background */
+    min-height: 100vh;
+    background: var(--dark-bg);
+    padding-top: 0; /* Remove top padding if any */
+}
+
+/* 1. Main Container Setup */
+.profile-container {
+    /* Assuming the navbar is fixed, push content down */
+    padding-top: 5rem; 
+    padding-bottom: 3rem;
+    max-width: 1400px; /* Use a wider max width for settings */
+    margin: 0 auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+/* 2. Top Action Bar */
+.profile-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    margin-bottom: 2rem;
+    /* Optional: Add a sticky position below navbar if needed, but let's stick to simple layout */
+}
+
+.profile-actions .btn-back,
+.profile-actions .btn-logout {
+    text-decoration: none;
+    padding: 0.75rem 1.25rem;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.profile-actions .btn-back {
+    color: var(--text-gray);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.profile-actions .btn-back:hover {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.profile-actions .action-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.profile-actions .btn-logout {
+    background: #444; /* Darker grey for low-priority action */
+    color: white;
+}
+.profile-actions .btn-logout:hover {
+    background: var(--danger);
+}
+
+.profile-actions .btn-save {
+    /* Using gradient style from index.css's primary button */
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+.profile-actions .btn-save:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+}
+
+/* 3. Main Content Area */
+.profile-container .profile-content {
+    padding: 0; /* Ensure no extra padding from profile.css is applied here */
+}
+
+
+/* --- SECTION HEADER --- */
+
+.profile-content .section-header {
+    max-width: 900px;
+    margin: 0 auto 3.5rem; 
+    text-align: center;
+}
+
+.section-header h1 {
+    font-size: 2.8rem; 
+    /* Apply gradient text effect */
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.75rem;
+    font-weight: 700;
+}
+
+.section-header p {
+    font-size: 1.1rem;
+    color: var(--text-gray);
+}
+
+
+/* --- GRID LAYOUT --- */
+.settings-container {
+    display: grid;
+    /* Responsive 2-column layout. Override index.css's general grids. */
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)) !important; 
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* --- SETTINGS CARDS --- */
+.settings-container .settings-card {
+    background: var(--dark-card);
+    padding: 2rem; 
+    border-radius: 16px; 
+    border: 1px solid rgba(99, 102, 241, 0.2); 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s;
+}
+
+.settings-container .settings-card:hover {
+    transform: translateY(-5px); 
+    border-color: var(--primary-color);
+}
+
+.settings-card h3 {
+    font-size: 1.4rem; 
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(99, 102, 241, 0.15); 
+    padding-bottom: 0.75rem;
+    color: var(--text-light); /* Explicitly set color */
+}
+
+/* --- FORM GROUPS & INPUTS (Input/Select Styling) --- */
+.settings-card .setting-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+}
+
+.settings-card .setting-group label {
+    margin-bottom: 0.75rem;
+    color: var(--text-gray);
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+/* Max specificity for form inputs */
+.settings-card .form-input {
+    width: 100%;
+    padding: 1rem; 
+    background: rgba(99, 102, 241, 0.08); 
+    border: 1px solid rgba(99, 102, 241, 0.25);
+    border-radius: 8px; 
+    color: var(--text-light);
+    transition: all 0.3s;
+}
+
+.settings-card .form-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background: rgba(99, 102, 241, 0.15);
+    box-shadow: 0 0 8px rgba(99, 102, 241, 0.4);
+}
+
+/* --- TOGGLE SWITCHES (Consistent Look) --- */
+.settings-card .setting-toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 1rem; 
+    background: rgba(99, 102, 241, 0.05);
+    border-radius: 8px;
+    margin-top: 1rem; /* Space between toggles */
+    border: 1px solid rgba(99, 102, 241, 0.1);
+}
+
+.setting-toggle span {
+    font-weight: 500;
+    color: var(--text-light);
+}
+
+/* Switch colors override */
+.setting-toggle .switch input:checked + .slider { 
+    background-color: var(--primary-color) !important; 
+}
+
+/* Default Switch styles (for completeness) */
+.switch { position: relative; display: inline-block; width: 60px; height: 34px; }
+.switch input { opacity: 0; width: 0; height: 0; }
+.slider {
+    position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0;
+    background-color: var(--text-gray); transition: 0.4s; border-radius: 34px;
+}
+.slider:before {
+    position: absolute; content: ""; height: 26px; width: 26px; left: 4px; bottom: 4px;
+    background-color: white; transition: 0.4s; border-radius: 50%;
+}
+input:checked + .slider:before { transform: translateX(26px); }
+
+
+/* --- PASSWORD UPDATE BUTTON (Inside its card) --- */
+.settings-card .btn-save-settings {
+    display: block; 
+    width: 100%;
+    padding: 1.1rem 1.5rem;
+    margin-top: 2rem;
+    
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1.05rem;
+    transition: all 0.3s;
+}
+
+.settings-card .btn-save-settings:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(99, 102, 241, 0.5);
+}
+
+/* =======================================================
+    DANGER ZONE STYLING (Themed to Danger Color)
+========================================================== */
+.settings-container .danger-card {
+    grid-column: 1 / -1; 
+    background-color: #3f1e1e !important; 
+    border: 2px solid var(--danger) !important; 
+}
+
+.danger-card h3 {
+    color: var(--danger);
+    border-bottom-color: rgba(239, 68, 68, 0.3);
+}
+
+.danger-card p {
+    color: #fca5a5;
+    margin-bottom: 2rem; 
+}
+
+.danger-actions-wrapper {
+    display: flex;
+    gap: 1.5rem; 
+    flex-wrap: wrap;
+}
+
+.danger-card .btn-save-settings {
+    margin-top: 0 !important; 
+    flex-grow: 1; 
+    min-width: 250px; 
+    background-image: none !important; 
+    font-weight: 700;
+}
+
+/* 1. Download Button (Blue) */
+.danger-card .btn-download {
+    background-color: #3b82f6 !important; 
+}
+
+/* 2. Delete All Data Button (Standard Red) */
+.danger-card .btn-delete-data {
+    background-color: var(--danger) !important; 
+}
+
+/* 3. Delete Account Permanently Button (Darker Red) */
+.danger-card .btn-delete-account {
+    background-color: #b91c1c !important; 
+}
+
+/* =======================================================
+    RESPONSIVE ADJUSTMENTS
+========================================================== */
+@media (max-width: 1024px) {
+    .settings-container {
+        grid-template-columns: 1fr !important; 
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .profile-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+    }
+    .profile-actions .action-buttons {
+        justify-content: space-around;
+    }
+    .profile-actions .btn-back {
+        text-align: center;
+        width: 100%;
+    }
+    .settings-card {
+        padding: 1.5rem;
+    }
+    .danger-actions-wrapper {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    .danger-card .btn-save-settings {
+        min-width: unset; 
+    }
+}
